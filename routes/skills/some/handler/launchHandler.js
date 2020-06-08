@@ -2,11 +2,12 @@ const { Stage, Message } = require('../../../../models');
 
 const launchHandler = async (skill, action_type) => {
   try {
-    const skill_id = skill.id;
+    const { id } = skill;
 
     const stage = await Stage.findOne({
       where: {
-        skill_id
+        skill_id: id,
+        name: action_type
       }
     });
     const message = await Message.findAll({

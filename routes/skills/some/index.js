@@ -3,16 +3,15 @@ const handlers = {
   intent: require('./handler/intentHandler'),
   input: require('./handler/inputHandler'),
   choice: require('./handler/choiceHandler'),
-  interpretation: require('./handler/interpretationHandler'),
   review: require('./handler/reviewHandler')
 };
 
 const controller = (req, res) => {
   try {
-    const { skill, action_type } = req.body;
+    const { skill, action_type, answer } = req.body;
     const handler = handlers[action_type];
     if (handler) {
-      return handler(skill, action_type);
+      return handler(skill, action_type, answer);
     } else {
       return Promise.reject({ error: 'Invalid action_type' });
     }
