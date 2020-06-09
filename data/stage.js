@@ -1,6 +1,6 @@
 module.exports = [
   {
-    name: 'lauch',
+    name: 'launch',
     skill_id: 1
   },
   {

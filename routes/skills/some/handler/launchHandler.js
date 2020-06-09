@@ -3,13 +3,15 @@ const { Stage, Message } = require('../../../../models');
 const launchHandler = async (skill, action_type) => {
   try {
     const { id } = skill;
-
+    // get stage_id
     const stage = await Stage.findOne({
       where: {
         skill_id: id,
         name: action_type
       }
     });
+
+    // get message
     const message = await Message.findAll({
       where: {
         stage_id: stage.id
@@ -24,7 +26,7 @@ const launchHandler = async (skill, action_type) => {
     };
     return Promise.resolve(response);
   } catch (err) {
-    return Promise.reject(err);
+    return Promise.reject({ error: err.message });
   }
 };
 

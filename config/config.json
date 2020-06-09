@@ -1,24 +1,10 @@
 {
   "development": {
-    "username": "username",
-    "password": "password",
-    "database": "scenario_chatbot_development",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  },
-  "test": {
     "username": "root",
-    "password": null,
-    "database": "scenario_chatbot_test",
+    "password": "jjang3833",
+    "database": "scenario_chatbot_development",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "logging": false
-  },
-  "production": {
-    "username": "root",
-    "password": "koreanjson01",
-    "database": "scenario_chatbot_test",
-    "host": "localhost",
-    "dialect": "mysql"
   }
 }

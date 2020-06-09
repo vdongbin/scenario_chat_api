@@ -5,8 +5,8 @@ const inputHandler = async (skill, action_type, answer) => {
   try {
     const { id } = skill;
     const { input } = answer;
-    console.log(input);
 
+    // get stage_id
     const stage = await Stage.findOne({
       where: {
         skill_id: id,
@@ -15,27 +15,34 @@ const inputHandler = async (skill, action_type, answer) => {
     });
 
     // get cards and shuffle
-    let card = await Card.findAll({
+    const card = await Card.findAll({
       attributes: ['id', 'name']
     });
-    card = _.shuffle(card);
+    const suffled = _.shuffle(card);
 
+    // get message and replace $ to input
     const message = await Message.findAll({
       where: {
         stage_id: stage.id
       },
       attributes: ['type', 'contents']
     });
+    const changedMessage = message.map((e) => {
+      if (e.type === 'text') {
+        e.contents = e.contents.replace(/\$/gi, input);
+      }
+      return e;
+    });
 
     const response = {
       action_type: 'choice',
-      message,
+      message: changedMessage,
       skill,
-      card
+      card: suffled
     };
     return Promise.resolve(response);
   } catch (err) {
-    return Promise.reject(err);
+    return Promise.reject({ error: err.message });
   }
 };
 

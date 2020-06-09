@@ -16,12 +16,14 @@ skillRouter.post('/', async (req, res) => {
     const controller = skillsModule[skill.name];
     if (controller) {
       const result = await controller(req, res);
+      if (result.error) {
+        return res.status(400).send({ error: result.error });
+      }
       return res.send(result);
     } else {
       return res.status(400).send({ error: 'Invalid skill' });
     }
   } catch (err) {
-    console.log(23131, err);
     return res.status(500).send(err);
   }
 });
