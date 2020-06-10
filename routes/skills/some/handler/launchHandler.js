@@ -26,7 +26,7 @@ const launchHandler = async (skill, action_type) => {
     };
     return Promise.resolve(response);
   } catch (err) {
-    return Promise.reject({ error: err.message });
+    return Promise.reject(err);
   }
 };
 

@@ -38,7 +38,7 @@ const reviewHandler = async (skill, action_type, answer) => {
     };
     return Promise.resolve(response);
   } catch (err) {
-    return Promise.reject({ error: err.message });
+    return Promise.reject(err);
   }
 };
 

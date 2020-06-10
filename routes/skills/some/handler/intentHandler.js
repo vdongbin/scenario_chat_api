@@ -45,7 +45,7 @@ const intentHandler = async (skill, action_type, answer) => {
       return Promise.resolve({ error: 'Invalid intent' });
     }
   } catch (err) {
-    return Promise.reject({ error: err.message });
+    return Promise.reject(err);
   }
 };
 

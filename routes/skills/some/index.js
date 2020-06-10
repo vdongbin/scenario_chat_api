@@ -16,7 +16,7 @@ const controller = (req, res) => {
       return Promise.resolve({ error: 'Invalid action_type' });
     }
   } catch (err) {
-    return Promise.reject({ error: err.message });
+    return Promise.reject(err);
   }
 };
 
