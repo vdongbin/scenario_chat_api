@@ -236,9 +236,8 @@ describe('SERVER API TEST :: POST /api/skills', () => {
           },
           action_type: 'choice',
           answer: {
-            choice: {
-              card_id: 5
-            }
+            choice: 17,
+            input: 'vincent'
           }
         })
         .set('Accept', 'application/json')
@@ -271,7 +270,8 @@ describe('SERVER API TEST :: POST /api/skills', () => {
           action_type: 'choice',
           answer: {
             choice: {
-              card_id: 79
+              choice: 79,
+              input: 'vincent'
             }
           }
         })

@@ -5,6 +5,10 @@ const choiceHandler = async (skill, action_type, answer) => {
     const { id } = skill;
     const { choice, input } = answer;
 
+    if (!choice || input.length === 0 || typeof input !== 'string') {
+      return Promise.resolve({ error: 'Invalid choice or input' });
+    }
+
     // get stage_id
     const stage = await Stage.findOne({
       where: {

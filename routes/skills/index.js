@@ -26,7 +26,7 @@ skillRouter.post('/', async (req, res) => {
       return res.status(400).send({ error: 'Invalid skill' });
     }
   } catch (err) {
-    return res.status(500).send(err);
+    return res.status(500).send({ error: err.message });
   }
 });
 

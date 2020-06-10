@@ -46,7 +46,7 @@ const checkKeyword = async (req, res, next) => {
       }
     }
   } catch (err) {
-    return res.status(500).send(err);
+    return res.status(500).send({ error: err.message });
   }
 };
 
