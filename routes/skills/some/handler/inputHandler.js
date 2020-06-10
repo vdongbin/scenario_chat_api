@@ -6,6 +6,10 @@ const inputHandler = async (skill, action_type, answer) => {
     const { id } = skill;
     const { input } = answer;
 
+    if (typeof input !== 'string' || input.length === 0) {
+      return Promise.resolve({ error: 'Invalid input' });
+    }
+
     // get stage_id
     const stage = await Stage.findOne({
       where: {
@@ -38,7 +42,7 @@ const inputHandler = async (skill, action_type, answer) => {
       action_type: 'choice',
       message: changedMessage,
       skill,
-      card: suffled
+      cards: suffled
     };
     return Promise.resolve(response);
   } catch (err) {

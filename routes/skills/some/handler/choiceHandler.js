@@ -24,7 +24,7 @@ const choiceHandler = async (skill, action_type, answer) => {
     // get interpretation and replace $ to input
     const interpretation = await Interpretation.findOne({
       where: {
-        card_id: choice.card_id,
+        card_id: parseInt(choice.card_id),
         skill_id: id
       },
       attributes: ['id', 'contents'],

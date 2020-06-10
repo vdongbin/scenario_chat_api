@@ -5,6 +5,10 @@ const reviewHandler = async (skill, action_type, answer) => {
     const { id } = skill;
     const { review } = answer;
 
+    if (typeof review !== 'string' || review.length === 0) {
+      return Promise.resolve({ error: 'Invalid review' });
+    }
+
     // add review
     await Review.create({
       skill_id: id,
