@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon app",
     "test": "mocha test",
-    "data": "node sequelizeSync"
+    "sync": "node sequelizeSync"
   },
   "author": "vincent",
   "license": "ISC",

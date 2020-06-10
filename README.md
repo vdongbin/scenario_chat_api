@@ -6,7 +6,7 @@
 
 ## Basic Setup
 
-데이터베이스에 데이터를 입력하기 위해서, 설치 과정은 차례에 맞게 진행되어야 합니다.
+데이터베이스에 데이터를 입력하기 위해서, 설치 과정은 아래의 차례에 맞게 진행되어야 합니다.
 
 1. 패키지들을 설치합니다.
 
@@ -35,15 +35,13 @@ sequelize db:create
 
 오류가 발생한다면, `node_modules/.bin/sequelize db:create` 를 사용하세요.
 
-4. 테이블 생성을 위해, 서버를 작동시킵니다.
+4. 테이블 생성을 위해, sequelize를 동기화합니다.
 
 ```bash
-npm start
+npm run sync
 ```
 
-오류가 발생한다면, `node_modules/.bin/nodemon app` 를 사용하세요.
-
-5. sequelize cli의 seed를 활용하여, 데이터베이스에 가짜 데이터를 생성합니다.
+5. sequelize cli의 seed를 활용하여, 가짜 데이터를 입력합니다.
 
 ```bash
 sequelize db:seed:all
