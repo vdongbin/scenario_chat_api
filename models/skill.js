@@ -9,11 +9,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING(20),
       allowNull: false
     },
-    router: {
-      type: DataTypes.STRING(20),
-      allowNull: false,
-      unique: true
-    },
     initial_stage: {
       type: DataTypes.STRING(20),
       allowNull: false
