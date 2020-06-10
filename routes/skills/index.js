@@ -6,10 +6,12 @@ const skillsModule = {
   some: require('./some')
 };
 
+// use middleware that check message
 skillRouter.use(async (req, res, next) => {
   checkKeyword(req, res, next);
 });
 
+// POST /api/skills
 skillRouter.post('/', async (req, res) => {
   try {
     const { skill } = req.body;
