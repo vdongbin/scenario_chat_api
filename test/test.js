@@ -259,7 +259,7 @@ describe('SERVER API TEST :: POST /api/skills', () => {
   });
 
   describe('[@req.body: action_type, skill, answer] choice stage (invalid card_id, card_id should be smaller than 79)', () => {
-    it('response status should be 500 and includes error', (done) => {
+    it('response status should be 400 and includes error', (done) => {
       request(app)
         .post('/api/skills')
         .send({
@@ -277,7 +277,7 @@ describe('SERVER API TEST :: POST /api/skills', () => {
         })
         .set('Accept', 'application/json')
         .expect('Content-type', /json/)
-        .expect(500)
+        .expect(400)
         .end((err, res) => {
           if (err) return done(err);
           const response = res.body;
