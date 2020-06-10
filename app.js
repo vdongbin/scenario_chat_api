@@ -16,9 +16,9 @@ sequelize.sync();
     case 'development':
       app.use(morgan('dev'));
       break;
-    case 'production':
-      app.use(morgan('combined'));
-      break;
+    // case 'production':
+    //   app.use(morgan('combined'));
+    //   break;
   }
 })(process.env.NODE_ENV);
 app.use(cors());

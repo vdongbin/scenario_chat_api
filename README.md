@@ -12,7 +12,20 @@
 npm install
 ```
 
-2. sequelize cli를 사용하여, 데이터베이스를 생성합니다.
+2. config/config.json 파일의 username과 password를 알맞게 수정합니다.
+
+```bash
+  "development": {
+    "username": "YOUR_DATABASE_USERNAME",
+    "password": "YOUR_DATABASE_PASSWORD",
+    "database": "scenario_chatbot_development",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "logging": false
+  }
+```
+
+3. sequelize cli를 사용하여, 데이터베이스를 생성합니다.
 
 ```bash
 sequelize db:create
@@ -20,7 +33,7 @@ sequelize db:create
 
 오류가 발생한다면, `node_modules/.bin/sequelize db:create` 를 사용하세요.
 
-3. sequelize seeder를 활용하여, 데이터베이스에 가짜 데이터를 생성합니다.
+4. sequelize seeder를 활용하여, 데이터베이스에 가짜 데이터를 생성합니다.
 
 ```bash
 sequelize db:seed:all
