@@ -1,4 +1,4 @@
-const handlers = {
+const stageHandlers = {
   launch: require('./handler/launchHandler'),
   intent: require('./handler/intentHandler'),
   input: require('./handler/inputHandler'),
@@ -9,9 +9,9 @@ const handlers = {
 const controller = (req, res) => {
   try {
     const { skill, action_type, answer } = req.body;
-    const handler = handlers[action_type];
-    if (handler) {
-      return handler(skill, action_type, answer);
+    const stageHandler = stageHandlers[action_type];
+    if (stageHandler) {
+      return stageHandler(skill, action_type, answer);
     } else {
       return Promise.resolve({ error: 'Invalid action_type' });
     }

@@ -9,7 +9,7 @@ const intentHandler = async (skill, action_type, answer) => {
       // handle fallback
       const response = {
         action_type: 'fallback',
-        skill,
+        skill: null,
         message: [
           {
             type: 'text',

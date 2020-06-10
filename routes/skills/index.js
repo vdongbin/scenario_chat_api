@@ -15,9 +15,9 @@ skillRouter.use(async (req, res, next) => {
 skillRouter.post('/', async (req, res) => {
   try {
     const { skill } = req.body;
-    const controller = skillsModule[skill.name];
-    if (controller) {
-      const result = await controller(req, res);
+    const skillHandler = skillsModule[skill.name];
+    if (skillHandler) {
+      const result = await skillHandler(req, res);
       if (result.error) {
         return res.status(400).send({ error: result.error });
       }
