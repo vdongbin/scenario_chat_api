@@ -34,10 +34,16 @@ sequelize db:seed:all
 npm start
 ```
 
+Basic Setup을 마친 이후에 서버 시작을 해야합니다.
+
+오류가 발생한다면, `node_modules/.bin/nodemon app` 를 사용하세요.
+
 ## Test
 
 ```bash
 npm test
 ```
+
+마찬가지로, Basic Setup을 마친 이후에 API 테스트를 해야합니다.
 
 오류가 발생한다면, `node_modules/.bin/mocha test` 를 사용하세요.
