@@ -2,23 +2,18 @@ const express = require('express');
 const morgan = require('morgan');
 require('dotenv').config();
 const skillRouter = require('./routes/skills');
-const { sequelize } = require('./models');
 const cors = require('cors');
 const port = process.env.SERVER_PORT || 3000;
 
-// set server and database
 const app = express();
-sequelize.sync();
 
 // use middleware
 ((env) => {
+  // only use development
   switch (env) {
     case 'development':
       app.use(morgan('dev'));
       break;
-    // case 'production':
-    //   app.use(morgan('combined'));
-    //   break;
   }
 })(process.env.NODE_ENV);
 app.use(cors());

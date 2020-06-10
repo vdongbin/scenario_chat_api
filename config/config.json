@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "YOUR_DATABASE_USERNAME",
-    "password": "YOUR_DATABASE_PASSWORD",
+    "username": "root",
+    "password": "jjang3833",
     "database": "scenario_chatbot_development",
     "host": "127.0.0.1",
     "dialect": "mysql",
