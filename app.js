@@ -3,6 +3,7 @@ const morgan = require('morgan');
 require('dotenv').config();
 const skillRouter = require('./routes/skills');
 const { sequelize } = require('./models');
+const cors = require('cors');
 const port = process.env.SERVER_PORT || 3000;
 
 // set server and database
